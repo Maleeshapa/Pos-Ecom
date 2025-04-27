@@ -1,0 +1,59 @@
+.stats-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: none;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+}
+
+.stats-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stats-icon.blue {
+    background-color: #4285f4;
+}
+
+.stats-icon.green {
+    background-color: #34a853;
+}
+
+.stats-icon.orange {
+    background-color: #ff6b35;
+}
+
+.stats-label {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.stats-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .stats-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .stats-label {
+        font-size: 0.8rem;
+    }
+    
+    .stats-value {
+        font-size: 1.3rem;
+    }
+}

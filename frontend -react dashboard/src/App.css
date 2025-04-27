@@ -1,0 +1,147 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* 
+
+@media screen and (min-width: 1024px) and (max-width: 1600px) {
+  body {
+    zoom: 75%;
+    
+    -webkit-transform-origin: 0 0;
+    
+    transform-origin: 0 0;
+    
+  }
+} */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@media screen and (min-width: 1024px) and (max-width: 1600px) {
+  .modal-overlay {
+    zoom: 120%;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-content {
+    zoom: 120%;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    overflow: auto;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.scrolling-container {
+  padding: 10px;
+}
+
+/* .show-Header{
+  display: none;
+} */
+.Header-show {
+  display: none;
+}
+
+.side-bar-res{
+  height: 100vh;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+@media (max-width:768px) {
+  .Header-show {
+    display: none;
+  }
+
+  .show-Header {
+    display: flex;
+  }
+  .pages-content{
+    width: 100%;
+    margin-left: 0px !important;
+  }
+}
+
+@media (max-width:568px) {
+  /* .scrolling-container {
+    height: 120vh;
+  } */
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background: #67a1ff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #67a1ff;
+}
+
+::-webkit-scrollbar-track {
+  background: #213555;
+}
+
+.pagination {
+  position: relative;
+  z-index: 0; /* Lower than modal */
+}
+
+.modal-backdrop {
+  z-index: 1050 !important; /* Ensure it stays above other elements */
+}
+
+.modal {
+  z-index: 1055 !important; /* Ensure modal is above the backdrop */
+}

@@ -1,0 +1,40 @@
+[2025-03-26T15:35:52.682Z] - Error: connect ECONNREFUSED ::1:3306
+Stack Trace:
+SequelizeConnectionRefusedError: connect ECONNREFUSED ::1:3306
+    at ConnectionManager.connect (E:\Projects\New Ongoing Projects\13) Sinha Cabs\08\RentHire-main\backend\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:92:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\Projects\New Ongoing Projects\13) Sinha Cabs\08\RentHire-main\backend\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24)
+    at async E:\Projects\New Ongoing Projects\13) Sinha Cabs\08\RentHire-main\backend\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+
+[2025-03-26T15:36:23.432Z] - Error: Access denied for user ''@'localhost' (using password: NO)
+Stack Trace:
+SequelizeAccessDeniedError: Access denied for user ''@'localhost' (using password: NO)
+    at ConnectionManager.connect (E:\Projects\New Ongoing Projects\13) Sinha Cabs\08\RentHire-main\backend\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:94:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\Projects\New Ongoing Projects\13) Sinha Cabs\08\RentHire-main\backend\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24)
+    at async E:\Projects\New Ongoing Projects\13) Sinha Cabs\08\RentHire-main\backend\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+
+[2025-04-13T11:46:41.096Z] - Error: connect ECONNREFUSED ::1:3306
+Stack Trace:
+SequelizeConnectionRefusedError: connect ECONNREFUSED ::1:3306
+    at ConnectionManager.connect (E:\Projects\New Ongoing Projects\16) Modern Pos\Pos New\backend\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:92:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\Projects\New Ongoing Projects\16) Modern Pos\Pos New\backend\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24)
+    at async E:\Projects\New Ongoing Projects\16) Modern Pos\Pos New\backend\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+
+[2025-04-13T11:47:05.291Z] - Error: connect ECONNREFUSED ::1:3306
+Stack Trace:
+SequelizeConnectionRefusedError: connect ECONNREFUSED ::1:3306
+    at ConnectionManager.connect (E:\Projects\New Ongoing Projects\16) Modern Pos\Pos New\backend\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:92:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\Projects\New Ongoing Projects\16) Modern Pos\Pos New\backend\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24)
+    at async E:\Projects\New Ongoing Projects\16) Modern Pos\Pos New\backend\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+
+[2025-04-13T12:40:59.782Z] - Error: Access denied for user 'kandyisl_useraroma'@'localhost' (using password: YES)
+Stack Trace:
+SequelizeAccessDeniedError: Access denied for user 'kandyisl_useraroma'@'localhost' (using password: YES)
+    at ConnectionManager.connect (E:\Projects\New Ongoing Projects\16) Modern Pos\GIt Pos E Com\backend\node_modules\sequelize\lib\dialects\mysql\connection-manager.js:94:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\Projects\New Ongoing Projects\16) Modern Pos\GIt Pos E Com\backend\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24)
+    at async E:\Projects\New Ongoing Projects\16) Modern Pos\GIt Pos E Com\backend\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+
