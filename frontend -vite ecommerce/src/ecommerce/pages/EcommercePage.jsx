@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, Button, Badge, Table, Form, InputGroup } fro
 import { FaHome, FaClipboardList, FaWpforms, FaShoppingCart, FaUser, FaTimes, FaPlus, FaMinus, FaSearch, FaPercent, FaTag, FaTrash } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './EcommercePage.css';
-import EcomSidebar from '../components/ecomSidebar';
+import EcomSidebar from '../components/EcomSidebar';
 import StatsCards from '../components/StatsCards';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';

@@ -1742,7 +1742,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-import EcomSidebar from '../components/ecomSidebar';
+import EcomSidebar from '../components/EcomSidebar';
 import StatsCards from '../components/StatsCards';
 import './EcommerceOrder.css';
 

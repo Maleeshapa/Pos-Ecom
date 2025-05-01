@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaHome, FaClipboardList, FaWpforms, FaShoppingCart, FaUser, FaTags } from 'react-icons/fa';
+import { FaHome, FaClipboardList, FaWpforms, FaShoppingCart, FaUser, FaTags, FaWarehouse } from 'react-icons/fa';
 import { GiReceiveMoney } from "react-icons/gi";
 function EcomSidebar() {
   return (
@@ -17,11 +17,15 @@ function EcomSidebar() {
         <FaWpforms size={22} />
         <span className="sidebar-text">නිශ්පාදන</span>
       </NavLink>
+      <NavLink to="/e-stock" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"} style={{ textDecoration: 'none' }}>
+        <FaWarehouse   size={22} />
+        <span className="sidebar-text">තොග</span>
+      </NavLink>
 
-      <NavLink to="/e-due" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"} style={{ textDecoration: 'none' }}>
+      {/* <NavLink to="/e-due" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"} style={{ textDecoration: 'none' }}>
         <GiReceiveMoney size={22} />
         <span className="sidebar-text">Due</span>
-      </NavLink>
+      </NavLink> */}
 
       {/* <NavLink to="/e-category" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"} style={{ textDecoration: 'none' }}>
         <FaTags size={22} />

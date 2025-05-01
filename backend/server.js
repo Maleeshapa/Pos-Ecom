@@ -25,27 +25,26 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 //Controllers
+// const SupplierPaymentController = require("./controller/SupplierPaymentController");
 // const SupplierController = require("./controller/SupplerController");
+// const InvoiceController = require("./controller/InvoiceController");
+// const TransactionController = require("./controller/TransactionController");
+// const ReturnController = require("./controller/ReturnController");
+// const ReturnProductController = require("./controller/ReturnProductController");
 const UserController = require("./controller/UserController");
 const CategoryController = require("./controller/CategoryController");
 const ProductController = require("./controller/ProductController");
-// const InvoiceController = require("./controller/InvoiceController");
-// const TransactionController = require("./controller/TransactionController");
 const StoreController = require("./controller/StoreController");
-// const ReturnController = require("./controller/ReturnController");
-// const ReturnProductController = require("./controller/ReturnProductController");
 const ExpenseController = require("./controller/ExpensesController");
 const ExpensesCatController = require("./controller/ExpensesCatController");
 const ReportController = require("./controller/Reports/ReportController");
 const ProductNStockController = require("./controller/Reports/ProductStockController");
 const InvoiceProductController = require('./controller/InvoiceProduct');
 const CustomerController = require('./controller/CustomerController');
-// const DeliveryNoteController = require('./controller/DeliveryNoteController');
 const ChequeController = require('./controller/ChequeController');
 const Transaction = require("./model/Transaction");
 const DueCustomerController = require("./controller/DueCustomerController");
-// const SupplierPaymentController = require("./controller/SupplierPaymentController");
-
+const Ecoms =require('./controller/EcomStockController');
 const SwitchController = require('./controller/SwitchController');
 
 const DueCustomer = require("./model/DueCustomer");
@@ -60,9 +59,6 @@ const { checkoutController } = require("./controller/checkoutController");
 
 const app = express();
 const PORT = process.env.PORT;
-
-
-
 
 // Middleware
 app.use(cors());
@@ -79,7 +75,11 @@ app.put("/user/:id", UserController.updateUser);
 app.delete("/user/:id", UserController.deleteUser);
 app.post("/userLogin", UserController.userLogin);
 
-
+//Ecommerce routes
+app.post('/ecomStock',Ecoms.createEcomStock);
+app.get('/ecomStocks',Ecoms.getEcomStock);
+app.delete('/ecomStock/:ecomstockId',Ecoms.deleteStock);
+app.put('/ecomStocks/:ecomstockId',Ecoms.updateStock);
 
 //category routes
 app.post("/category", CategoryController.createCategory);

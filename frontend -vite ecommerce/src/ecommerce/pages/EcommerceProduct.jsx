@@ -429,7 +429,7 @@ import {
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import './EcommerceProduct.css';
-import EcomSidebar from '../components/ecomSidebar';
+import EcomSidebar from '../components/EcomSidebar';
 
 import { BASE_URL } from '../../config'; // or your actual backend URL
 

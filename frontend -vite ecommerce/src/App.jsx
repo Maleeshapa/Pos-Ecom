@@ -10,6 +10,7 @@ import { ToastContainer } from 'react-toastify';
 import ScrollToTop from './ecommerce/components/ScrollToTop';
 import InternetModal from '../src/ecommerce/components/NoConnection/InternetModal';
 import Ecommercedue from './ecommerce/pages/Ecommercedue';
+import EcommerceStock from './ecommerce/pages/EcommerceStock';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/e-product" element={<EcommerceProduct />} />
           <Route path="/e-category" element={<Ecategory />} />
           <Route path="/e-due" element={<Ecommercedue />} />
+          <Route path="/e-stock" element={<EcommerceStock />} />
           {/* Add other routes as needed */}
         </Routes>
 
