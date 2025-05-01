@@ -1842,7 +1842,7 @@ function EcommerceOrderList() {
     setShowModal(true);
   };
 
-  const handlePrint = (transaction) => {
+  const handlePrint = async (transaction) => {
     if (!transaction) {
       if (selectedTransaction) {
         transaction = selectedTransaction;
@@ -1851,19 +1851,65 @@ function EcommerceOrderList() {
         return;
       }
     }
-
+  
+    // Fetch order details if not already available
+    let itemsForPrint = [];
+    if (transaction === selectedTransaction) {
+      itemsForPrint = orderItems;
+    } else {
+      try {
+        // Get sales items associated with this transaction
+        const response = await axios.get(`${BASE_URL}/salesGet?transactionId=${transaction.transactionId}`);
+        let salesItems = response.data;
+  
+        // Filter sales items for this transaction if not already filtered by the API
+        if (Array.isArray(salesItems)) {
+          salesItems = salesItems.filter(item => item.transactionId === transaction.transactionId);
+        }
+  
+        // For each sale item, fetch the product details
+        itemsForPrint = await Promise.all(
+          salesItems.map(async (item) => {
+            if (item.productId) {
+              try {
+                const productResponse = await axios.get(`${BASE_URL}/product/${item.productId}`);
+                return {
+                  ...item,
+                  productName: productResponse.data.productName || 'Unknown Product',
+                  category: productResponse.data.category?.categoryName || 'Uncategorized',
+                  productCode: productResponse.data.productCode || 'N/A'
+                };
+              } catch (err) {
+                console.error(`Error fetching product details for ID ${item.productId}:`, err);
+                return {
+                  ...item,
+                  productName: 'Product Not Found',
+                  category: 'Unknown',
+                  productCode: 'N/A'
+                };
+              }
+            }
+            return item;
+          })
+        );
+      } catch (err) {
+        console.error('Error fetching order details for printing:', err);
+        toast.error("Failed to load order details for printing");
+        return;
+      }
+    }
+  
     toast.info("Preparing receipt for printing...", {
       position: "bottom-right",
     });
-
+  
     // Create a new window for the POS receipt
     const printWindow = window.open('', '_blank');
-
+  
     // Calculate values for the receipt
-    const itemsForPrint = transaction === selectedTransaction ? orderItems : [];
     const totalItemsSold = itemsForPrint.reduce((total, item) => total + (item.quantity || 0), 0);
     const subtotal = transaction.price || 0;
-
+  
     // Generate the receipt HTML
     printWindow.document.write(`
       <!DOCTYPE html>
@@ -1945,18 +1991,17 @@ function EcommerceOrderList() {
       </head>
       <body>
         <div class="receipt-header">
-          <div class="store-name">THE GOLDEN AROMA</div>
-          <div class="store-info">Katugastota, Kandy</div>
-          <div class="store-info">Tel: +94776369969 | +94763315419</div>
-          <div class="store-info">Email: goldenaroma01@gmail.com</div>
+          <div class="store-name">Liyanage Gas Store</div>
+          <div class="store-info">Heerassagala Rd, Kandy 20000</div>
+          <div class="store-info">Tel: 0812 225 884 | 071 453 4148</div>
         </div>
         
-        <div class="receipt-title">SALES RECEIPT</div>
+        <div class="receipt-title"> බිල් පත </div>
         
         <div class="order-info">
           <div>Order #: ${transaction.transactionId}</div>
-          <div>Date: ${new Date(transaction.createdAt).toLocaleDateString()}</div>
-          <div>Time: ${new Date(transaction.createdAt).toLocaleTimeString()}</div>
+          <div>දිනය: ${new Date(transaction.createdAt).toLocaleDateString()}</div>
+          <div>වේලාව: ${new Date(transaction.createdAt).toLocaleTimeString()}</div>
           <div>Customer: Walk-in Customer</div>
           <div>Payment: ${transaction.paymentType ? transaction.paymentType.toUpperCase() : 'CASH'}</div>
         </div>
@@ -1964,10 +2009,10 @@ function EcommerceOrderList() {
         <table class="items-table">
           <thead>
             <tr>
-              <th>Item</th>
-              <th>Qty</th>
-              <th>Price</th>
-              <th class="right">Total</th>
+              <th>නිශ්පාදනය</th>
+              <th>ප්‍රමාණය</th>
+              <th>මිල</th>
+              <th class="right">එකතුව</th>
             </tr>
           </thead>
           <tbody>
@@ -2010,14 +2055,14 @@ function EcommerceOrderList() {
         <div class="footer">
           <div>Total Items: ${totalItemsSold}</div>
           <div>Thank you for being with us!</div>
-          <div>Www.thegoldenaroma.com</div>
+          <div>ස්තූතියි නැවත එන්න!</div>
         </div>
       </body>
       </html>
     `);
-
+  
     printWindow.document.close();
-
+  
     // Wait for resources to load then print
     setTimeout(() => {
       printWindow.print();

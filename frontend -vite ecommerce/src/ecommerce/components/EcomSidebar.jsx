@@ -11,11 +11,11 @@ function EcomSidebar() {
       </NavLink>
       <NavLink to="/e-order" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"} style={{ textDecoration: 'none' }}>
         <FaClipboardList size={22} />
-        <span className="sidebar-text">Orders</span>
+        <span className="sidebar-text">ගණුදෙනු</span>
       </NavLink>
       <NavLink to="/e-product" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"} style={{ textDecoration: 'none' }}>
         <FaWpforms size={22} />
-        <span className="sidebar-text">Product</span>
+        <span className="sidebar-text">නිශ්පාදන</span>
       </NavLink>
 
       <NavLink to="/e-due" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"} style={{ textDecoration: 'none' }}>
@@ -36,7 +36,7 @@ function EcomSidebar() {
         <div className="user-avatar">
           <FaUser size={18} />
         </div>
-        <span className="user-name">Golden Aroma</span>
+        <span className="user-name">Liyanage</span>
       </div>
     </div>
   );
