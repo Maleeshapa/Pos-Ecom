@@ -27,7 +27,8 @@ function EcommerceStock() {
     const [formData, setFormData] = useState({
         productId: '',
         qty: '',
-        date: new Date().toISOString().split('T')[0]
+        date: new Date().toISOString().split('T')[0],
+        price:0,
     });
     const pageSize = 10;
 
@@ -246,6 +247,7 @@ function EcommerceStock() {
                                                     <th>දිනය (Date)</th>
                                                     <th>භාන්ඩය (Product)</th>
                                                     <th>ප්‍රමාණය (Quantity)</th>
+                                                    <th>Total Price</th>
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
@@ -258,6 +260,7 @@ function EcommerceStock() {
                                                         </td>
                                                         <td>{item.product?.productName}</td>
                                                         <td>{item.stockQTY}</td>
+                                                        <td>{item.product?.productSellingPrice*item.stockQTY}</td>
                                                         <td>
                                                             <div className="d-flex gap-1">
                                                                 <Button
